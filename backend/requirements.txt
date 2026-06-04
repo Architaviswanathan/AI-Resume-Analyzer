@@ -1,0 +1,15 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+pdfplumber==0.9.0
+python-docx==0.8.11
+nltk
+sentence-transformers
+scikit-learn
+spacy
+Werkzeug
+numpy
+torch
+transformers
+tqdm
+beautifulsoup4
+requests

@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #000000;
+  }
+  
+  /* Ensure text visibility on all backgrounds */
+  .text-visible {
+    color: #000000 !important;
+  }
+  
+  .text-visible-light {
+    color: #000000 !important;
+  }
+  
+  .text-visible-white {
+    color: #ffffff !important;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-white/95 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+  
+  .card {
+    @apply glass-morphism rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-white/95 backdrop-blur-md text-black px-6 py-3 rounded-xl font-semibold border border-gray-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-300;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-white/95 backdrop-blur-sm text-black placeholder-gray-500;
+  }
+  
+  .skill-matched {
+    @apply inline-block px-3 py-1.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-medium rounded-full shadow-md;
+  }
+  
+  .skill-missing {
+    @apply inline-block px-3 py-1.5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-medium rounded-full shadow-md;
+  }
+  
+  .skill-neutral {
+    @apply inline-block px-3 py-1.5 bg-gradient-to-r from-gray-500 to-gray-600 text-white text-sm font-medium rounded-full shadow-md;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin border-2 border-blue-600 border-t-transparent rounded-full;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-border {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2px;
+    border-radius: 1rem;
+  }
+  
+  .gradient-border-inner {
+    background: white;
+    border-radius: calc(1rem - 2px);
+    padding: 1.5rem;
+  }
+  
+  /* Professional text utilities */
+  .text-primary {
+    color: #000000 !important;
+  }
+  
+  .text-secondary {
+    color: #000000 !important;
+  }
+  
+  .text-accent {
+    color: #000000 !important;
+  }
+  
+  .text-inverted {
+    color: #ffffff !important;
+  }
+  
+  /* Enhanced card text visibility */
+  .card-text {
+    @apply text-black;
+  }
+  
+  .card-text-secondary {
+    @apply text-black;
+  }
+  
+  .card-text-muted {
+    @apply text-black;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+  
+  /* Text visibility utilities */
+  .text-visible-on-gradient {
+    color: #000000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+  
+  .text-visible-on-dark {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Professional animations */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Professional card variants */
+.card-elevated {
+  @apply glass-morphism rounded-2xl p-8 shadow-2xl hover:shadow-2xl transition-all duration-300;
+}
+
+.card-compact {
+  @apply glass-morphism rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-200;
+}
+
+.card-glow {
+  @apply glass-morphism rounded-2xl p-6 shadow-xl transition-all duration-300 hover:shadow-2xl;
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.1);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 50px rgba(102, 126, 234, 0.2);
+}
+
+/* Professional button variants */
+.btn-ghost {
+  @apply text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200;
+}
+
+.btn-outline {
+  @apply border-2 border-blue-500 text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-200;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 text-black px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200;
+}
+
+.btn-gradient-black {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 text-black px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200;
+}
+
+/* Status indicators */
+.status-success {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800;
+}
+
+.status-warning {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800;
+}
+
+.status-error {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800;
+}
+
+.status-info {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+}
+
+/* Professional typography */
+.text-display {
+  @apply text-4xl font-bold gradient-text text-shadow-lg;
+}
+
+.text-heading {
+  @apply text-2xl font-bold text-black;
+}
+
+.text-subheading {
+  @apply text-lg font-semibold text-black;
+}
+
+.text-body {
+  @apply text-base text-black;
+}
+
+.text-caption {
+  @apply text-sm text-black;
+}
+
+/* Professional spacing utilities */
+.space-y-compact > * + * {
+  margin-top: 0.5rem;
+}
+
+.space-y-comfortable > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-spacious > * + * {
+  margin-top: 2rem;
+}
+
+/* Enhanced text visibility for specific components */
+.header-text {
+  @apply text-white font-medium;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+.card-description {
+  color: #000000 !important;
+  line-height: 1.6;
+}
+
+.input-label {
+  color: #000000 !important;
+  @apply text-sm font-medium mb-2;
+}
+
+.placeholder-text {
+  @apply text-gray-500;
+}
+
+.error-text {
+  @apply text-red-600 font-medium;
+}
+
+.success-text {
+  @apply text-green-600 font-medium;
+}
+
+/* Force black text for specific elements */
+.force-black-text {
+  color: #000000 !important;
+}
+
+.force-black-text * {
+  color: #000000 !important;
+}
