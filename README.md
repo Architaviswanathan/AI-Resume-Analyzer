@@ -208,9 +208,6 @@ REACT_APP_API_URL=http://localhost:5000
 4. Add tests if applicable
 5. Submit a pull request
 
-## License
-
-This project is licensed under the MIT License.
 
 ## Future Enhancements
 
