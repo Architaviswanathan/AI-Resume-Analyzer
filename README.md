@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI Resume Analyzer
 
 A professional web application that analyzes resumes against job descriptions using advanced NLP and machine learning techniques.
@@ -223,3 +224,6 @@ This project is licensed under the MIT License.
 - [ ] Interview preparation tips
 - [ ] Salary estimation
 - [ ] Career path recommendations
+=======
+# AI-Resume-Analyzer
+>>>>>>> 4eb3fcb05481efef2028b0b7cb5798031014c347
