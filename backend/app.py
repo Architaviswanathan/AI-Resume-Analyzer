@@ -14,6 +14,7 @@ import string
 import re
 from sentence_transformers import SentenceTransformer, util
 import spacy
+import threading
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
@@ -29,14 +30,31 @@ except LookupError:
     nltk.download('punkt')
     nltk.download('stopwords')
 
-# Load models
-try:
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    print("Please install spacy model: python -m spacy download en_core_web_sm")
-    model = None
-    nlp = None
+# Models will be loaded lazily to reduce startup memory and time
+model = None
+nlp = None
+_models_lock = threading.Lock()
+_models_loaded = False
+
+def ensure_models_loaded():
+    """Load heavy models on first demand. Thread-safe."""
+    global model, nlp, _models_loaded
+    if _models_loaded:
+        return True
+    with _models_lock:
+        if _models_loaded:
+            return True
+        try:
+            model = SentenceTransformer('all-MiniLM-L6-v2')
+            nlp = spacy.load("en_core_web_sm")
+            _models_loaded = True
+            return True
+        except Exception as e:
+            print(f"Failed loading models: {e}")
+            model = None
+            nlp = None
+            _models_loaded = False
+            return False
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
@@ -699,7 +717,8 @@ def analyze_resume():
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
-    return jsonify({'status': 'healthy', 'models_loaded': model is not None and nlp is not None})
+    # Do not force model loading here; report readiness and model status
+    return jsonify({'status': 'healthy', 'models_loaded': _models_loaded})
 
 if __name__ == '__main__':
     # Create uploads directory if it doesn't exist
