@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Brain, Sparkles, ArrowRight } from 'lucide-react';
+import { FileText, Sparkles, ArrowRight } from 'lucide-react';
 
 const Header = () => {
   return (

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { 
-  TrendingUp, 
   CheckCircle, 
   XCircle, 
   AlertCircle, 
-  Target,
   BookOpen,
   Lightbulb,
   Clock,
   Star,
-  Award,
   TrendingDown,
   Users,
   Code,
@@ -19,8 +16,6 @@ import {
   ChevronUp,
   BarChart3,
   PieChart,
-  Zap,
-  Shield,
   Rocket,
   Target as TargetIcon
 } from 'lucide-react';
